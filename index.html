@@ -18,7 +18,7 @@
       <a class="brand" href="#home" aria-label="Sourav home"><span class="brand-mark">S</span><span>SOURAV<span class="dot">.</span></span></a>
       <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
       <div class="nav-links">
-        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact" class="nav-cta">Let's talk <span>↗</span></a>
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#journal">Journal</a><a href="#contact" class="nav-cta">Let's talk <span>↗</span></a>
       </div>
     </nav>
   </header>
@@ -78,7 +78,28 @@
       <p class="project-note"><span class="status-dot"></span> More projects will appear here as I keep building.</p>
     </section>
 
-    <section class="contact-section" id="contact"><div class="container contact-inner"><div class="section-label"><span>04 / CONTACT</span><span class="line"></span></div><div class="contact-content"><p class="eyebrow">HAVE A PROJECT OR JUST WANT TO SAY HELLO?</p><h2>Let's make<br>something <span class="gradient-text">meaningful.</span></h2><a class="btn btn-primary" href="mailto:hello@example.com" id="email-link">Say hello <span>↗</span></a><p class="contact-hint">Replace the sample email with your preferred contact address.</p></div><div class="contact-bottom"><span>© <span id="year"></span> Sourav Adhikary</span><span>DESIGNED WITH CURIOSITY <b>✳</b></span><a href="#home">BACK TO TOP ↑</a></div></div></section>
+    <section class="section journal-section" id="journal">
+      <div class="container">
+        <div class="section-label"><span>04 / PERSONAL JOURNAL</span><span class="line"></span></div>
+        <div class="section-heading"><h2>Life, work & little moments<span class="dot">.</span></h2><p>Personal vlogs, photos, videos, files<br>and things I'm learning along the way.</p></div>
+        <div class="journal-toolbar"><div class="journal-filters" role="group" aria-label="Filter posts"><button class="filter-btn active" data-filter="all">All posts</button><button class="filter-btn" data-filter="vlog">Vlogs</button><button class="filter-btn" data-filter="work">Work</button><button class="filter-btn" data-filter="learning">Learning</button></div><button class="btn btn-primary" id="toggle-composer" type="button">＋ Create a post</button></div>
+        <form class="post-composer" id="post-form" hidden>
+          <div class="composer-heading"><div><span class="project-type">YOUR JOURNAL</span><h3>Create a post</h3></div><button type="button" class="composer-close" id="close-composer" aria-label="Close post editor">×</button></div>
+          <label>Post title<input id="post-title" name="title" maxlength="100" placeholder="A day in my life..." required></label>
+          <label>Category<select id="post-category" name="category"><option value="vlog">Personal vlog</option><option value="work">My work</option><option value="learning">Learning</option><option value="life">Life update</option></select></label>
+          <label>Story / caption<textarea id="post-caption" name="caption" rows="5" maxlength="3000" placeholder="Write your story, share what you made or learned..."></textarea></label>
+          <label class="upload-label">Add photos, videos or files<input id="post-media" type="file" accept="image/*,video/*,.pdf,.doc,.docx,.ppt,.pptx,.xls,.xlsx,.zip,.txt" multiple><small>Prototype limit: up to 2 MB per file. Files are kept only in this browser for now.</small></label>
+          <div id="selected-files" class="selected-files"></div>
+          <button class="btn btn-primary" type="submit">Save post on this device ↗</button>
+          <p class="composer-note">This first version stores posts in your current browser only. To publish posts publicly and manage them from any device, we need to connect a secure database and media storage (such as Firebase).</p>
+        </form>
+        <div id="journal-feed" class="journal-grid" aria-live="polite"></div>
+        <p class="journal-empty" id="journal-empty">Your stories and projects will appear here. Use “Create a post” to try the journal editor.</p>
+        <div class="journal-foot"><span class="status-dot"></span> A living archive of my journey.</div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact"><div class="container contact-inner"><div class="section-label"><span>05 / CONTACT</span><span class="line"></span></div><div class="contact-content"><p class="eyebrow">HAVE A PROJECT OR JUST WANT TO SAY HELLO?</p><h2>Let's make<br>something <span class="gradient-text">meaningful.</span></h2><a class="btn btn-primary" href="mailto:hello@example.com" id="email-link">Say hello <span>↗</span></a><p class="contact-hint">Replace the sample email with your preferred contact address.</p></div><div class="contact-bottom"><span>© <span id="year"></span> Sourav Adhikary</span><span>DESIGNED WITH CURIOSITY <b>✳</b></span><a href="#home">BACK TO TOP ↑</a></div></div></section>
   </main>
   <script src="script.js"></script>
 </body>
