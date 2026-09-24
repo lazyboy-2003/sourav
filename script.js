@@ -69,11 +69,11 @@ async function loadPublicJournal() {
       card.append(body); journalFeed.append(card);
     });
     journalEmpty.hidden = visible.length > 0;
-    journalEmpty.textContent = posts.length ? 'No posts in this category yet.' : 'No posts have been published yet. Please check back soon.';
+    journalEmpty.textContent = posts.length ? 'No posts in this category yet.' : 'No published posts were returned by the database. Please check Firestore access and publication status.';
   } catch (error) {
     journalFeed.innerHTML = '';
     journalEmpty.hidden = false;
-    journalEmpty.textContent = 'Journal posts are temporarily unavailable.';
+    journalEmpty.textContent = 'Journal loading error: ' + (error.code || error.message || 'Unknown error');
     console.error('Could not load journal posts:', error);
   }
 }
