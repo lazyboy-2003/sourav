@@ -41,3 +41,35 @@ document.querySelectorAll('.filter-btn').forEach(button => button.addEventListen
   renderJournal();
 }));
 renderJournal();
+
+
+// Load published posts from Firestore; content is inserted as text, not HTML.
+async function loadPublicJournal() {
+  if (!journalFeed || !journalEmpty || typeof portfolioDb === 'undefined') return;
+  try {
+    const snap = await portfolioDb.collection('posts').where('published', '==', true).limit(50).get();
+    const posts = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    posts.sort((a,b) => (b.createdAt?.toMillis?.() || 0) - (a.createdAt?.toMillis?.() || 0));
+    const visible = activeFilter === 'all' ? posts : posts.filter(post => post.category === activeFilter);
+    journalFeed.innerHTML = '';
+    visible.forEach(post => {
+      const card = document.createElement('article'); card.className = 'journal-card';
+      const meta = document.createElement('div'); meta.className = 'journal-card-meta';
+      const category = document.createElement('span'); category.textContent = String(post.category || 'journal').toUpperCase();
+      const date = document.createElement('time'); date.textContent = post.createdAt?.toDate ? post.createdAt.toDate().toLocaleDateString() : '';
+      meta.append(category,date);
+      const title = document.createElement('h3'); title.textContent = post.title || '';
+      const body = document.createElement('p'); body.textContent = post.body || '';
+      card.append(meta,title,body); journalFeed.append(card);
+    });
+    journalEmpty.hidden = visible.length > 0;
+    journalEmpty.textContent = posts.length ? 'No posts in this category yet.' : 'No posts have been published yet. Please check back soon.';
+  } catch (error) {
+    journalFeed.innerHTML = '';
+    journalEmpty.hidden = false;
+    journalEmpty.textContent = 'Journal posts are temporarily unavailable.';
+    console.error('Could not load journal posts:', error);
+  }
+}
+document.querySelectorAll('.filter-btn').forEach(button => button.addEventListener('click', loadPublicJournal));
+loadPublicJournal();
