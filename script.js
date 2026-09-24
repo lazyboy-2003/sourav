@@ -24,33 +24,20 @@ const contactEmail = 'hello@example.com';
 const emailLink = document.getElementById('email-link');
 if (emailLink) emailLink.href = 'mailto:' + contactEmail;
 
-// Public journal is read-only. Publishing and deletion are not exposed on this page.
+// Public journal is read-only. Posts will appear here only after secure publishing is configured.
 const journalFeed = document.getElementById('journal-feed');
 const journalEmpty = document.getElementById('journal-empty');
-const STORAGE_KEY = 'sourav-portfolio-journal-v1';
 let activeFilter = 'all';
-function safeText(value) {
-  return String(value || '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-}
 function renderJournal() {
-  let posts = [];
-  try { posts = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); } catch { posts = []; }
-  posts = posts.filter(post => activeFilter === 'all' || post.category === activeFilter);
-  journalFeed.innerHTML = posts.map(post => {
-    const media = (post.media || []).map(file => {
-      const src = safeText(file.data);
-      if ((file.type || '').startsWith('image/')) return '<img class="post-media-image" src="'+src+'" alt="'+safeText(file.name)+'" loading="lazy">';
-      if ((file.type || '').startsWith('video/')) return '<video class="post-media-video" src="'+src+'" controls preload="metadata"></video>';
-      return '<a class="post-file-link" href="'+src+'" download="'+safeText(file.name)+'">↳ '+safeText(file.name)+' <span>Download file</span></a>';
-    }).join('');
-    const category = ({vlog:'PERSONAL VLOG',work:'MY WORK',learning:'LEARNING',life:'LIFE UPDATE'})[post.category] || 'JOURNAL';
-    return '<article class="journal-card"><div class="journal-card-meta"><span>'+category+'</span><time>'+safeText(post.date)+'</time></div><h3>'+safeText(post.title)+'</h3><p>'+safeText(post.caption).replace(/\\n/g,'<br>')+'</p>'+(media?'<div class="post-media-list">'+media+'</div>':'')+'</article>';
-  }).join('');
-  if (journalEmpty) journalEmpty.hidden = posts.length > 0;
+  if (journalFeed) journalFeed.innerHTML = '';
+  if (journalEmpty) {
+    journalEmpty.hidden = false;
+    journalEmpty.textContent = 'No posts have been published yet. Please check back soon.';
+  }
 }
 document.querySelectorAll('.filter-btn').forEach(button => button.addEventListener('click', () => {
   activeFilter = button.dataset.filter;
   document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.toggle('active', btn === button));
   renderJournal();
 }));
-if (journalFeed && journalEmpty) renderJournal();
+renderJournal();
