@@ -47,8 +47,8 @@ renderJournal();
 async function loadPublicJournal() {
   if (!journalFeed || !journalEmpty || typeof portfolioDb === 'undefined') return;
   try {
-    const snap = await portfolioDb.collection('posts').where('published', '==', true).limit(50).get();
-    const posts = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    const snap = await portfolioDb.collection('posts').limit(100).get();
+    const posts = snap.docs.map(doc => ({ id: doc.id, ...doc.data() })).filter(post => post.published === true);
     posts.sort((a,b) => (b.createdAt?.toMillis?.() || 0) - (a.createdAt?.toMillis?.() || 0));
     const visible = activeFilter === 'all' ? posts : posts.filter(post => post.category === activeFilter);
     journalFeed.innerHTML = '';
