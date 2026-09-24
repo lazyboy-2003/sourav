@@ -60,7 +60,13 @@ async function loadPublicJournal() {
       meta.append(category,date);
       const title = document.createElement('h3'); title.textContent = post.title || '';
       const body = document.createElement('p'); body.textContent = post.body || '';
-      card.append(meta,title,body); journalFeed.append(card);
+      card.append(meta,title);
+      if(post.fileUrl){const url=String(post.fileUrl),type=String(post.fileType||''),name=String(post.fileName||'Attached file');
+        if(type.startsWith('image/')){const img=document.createElement('img');img.src=url;img.alt=name;img.loading='lazy';img.style.cssText='width:100%;height:auto;max-height:520px;object-fit:contain;border-radius:12px;margin:12px 0';card.append(img);}
+        else if(type.startsWith('video/')||type.startsWith('audio/')){const media=document.createElement(type.startsWith('audio/')?'audio':'video');media.src=url;media.controls=true;media.preload='metadata';media.style.cssText='width:100%;max-height:520px;margin:12px 0';card.append(media);}
+        else {const link=document.createElement('a');link.href=url;link.target='_blank';link.rel='noopener noreferrer';link.textContent='Open / Download '+name;link.style.cssText='display:inline-block;margin:12px 0;color:inherit';card.append(link);}
+      }
+      card.append(body); journalFeed.append(card);
     });
     journalEmpty.hidden = visible.length > 0;
     journalEmpty.textContent = posts.length ? 'No posts in this category yet.' : 'No posts have been published yet. Please check back soon.';
