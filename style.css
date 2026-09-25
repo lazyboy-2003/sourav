@@ -88,3 +88,11 @@ body{background:radial-gradient(ellipse at 12% 5%,#32105b55,transparent 34%),rad
 .hero-art-photo .art-caption{position:absolute;bottom:20px;right:22px;color:#dce7ff}
 @media(max-width:900px){.hero-art-photo{min-height:440px}}
 @media(max-width:600px){.hero-art-photo{min-height:390px;border-radius:22px}.hero-profile-photo{object-position:center 25%}}
+
+/* Bug fix: keep the uploaded portrait unobstructed and preserve its full face on mobile. */
+.hero-art-photo .float-card{display:none!important}
+.hero-art-photo .art-caption{left:18px;right:18px;text-align:center;bottom:16px;text-shadow:0 2px 8px #000;}
+.hero-art-photo{min-width:0;}
+.hero-profile-photo{object-position:center 24%;}
+@media(max-width:900px){.hero{grid-template-columns:1fr;gap:24px}.hero-art-photo{width:100%;max-width:560px;margin:0 auto;min-height:clamp(360px,100vw,560px)}}
+@media(max-width:600px){.container{width:min(100% - 36px,1160px)}.hero{padding-top:34px;padding-bottom:84px}.hero h1{letter-spacing:-2px}.hero-actions{flex-wrap:wrap}.hero-meta{flex-wrap:wrap;gap:14px}.hero-art-photo{min-height:420px}.hero-profile-photo{object-position:center 20%}}
