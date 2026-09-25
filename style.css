@@ -32,3 +32,47 @@
 .journal-empty{padding:40px 20px;text-align:center;border:1px dashed var(--line);border-radius:8px;color:var(--muted);font-size:13px;line-height:1.7}
 .journal-foot{display:flex;align-items:center;gap:10px;margin-top:35px;color:var(--muted);font:10px var(--mono)}
 @media(max-width:600px){.journal-grid{grid-template-columns:1fr}.journal-toolbar{align-items:stretch}.journal-toolbar>.btn{justify-content:center}.journal-card{padding:20px}.filter-btn{padding:10px 12px;font-size:10px}.post-file-link{flex-direction:column}}
+
+
+/* CREATIVE FUTURISTIC COLORWAY — C */
+:root{--bg:#090817;--panel:#15122b;--panel2:#20183b;--text:#fff9ff;--muted:#b0a8c7;--line:rgba(210,174,255,.18);--lime:#ff65d8;--cyan:#68e7ff}
+body{background:radial-gradient(ellipse at 12% 5%,#32105b55,transparent 34%),radial-gradient(ellipse at 90% 25%,#092f5a55,transparent 30%),var(--bg)}
+.nav-wrap{background:rgba(9,8,23,.78);border-bottom-color:#a65cff33}
+.brand-mark{border-color:#ff65d8;color:#ff65d8;box-shadow:0 0 22px #ff65d833;transform:rotate(-8deg)}
+.nav-links a:hover,.nav-cta span{color:#68e7ff}.nav-cta{border-radius:999px;border-color:#b76cff55}
+.gradient-text{background:linear-gradient(100deg,#ff65d8 5%,#a477ff 48%,#68e7ff 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.status-dot{background:#68e7ff;box-shadow:0 0 16px #68e7ff}
+.btn{border-radius:999px}.btn-primary{background:linear-gradient(110deg,#ff65d8,#a477ff 60%,#68e7ff);color:#10091f;box-shadow:0 10px 35px #b54bff35}.btn-primary:hover{box-shadow:0 14px 45px #e65dff66}
+.btn-ghost{border-radius:999px;border-color:#b76cff55}.btn-ghost span{color:#68e7ff}
+.orbit{border-color:#ff65d855;box-shadow:0 0 35px #a477ff12}.orbit-two{border-color:#68e7ff55}
+.orb-core{background:radial-gradient(circle at 28% 20%,#fff1ff,#ff65d8 22%,#a477ff 48%,#2436a0 78%,#080817);box-shadow:0 0 100px #bd4dff66,inset -25px -25px 55px #080817;transform-style:preserve-3d}
+.orb-core span{color:#fff;text-shadow:0 5px 28px #ff65d8}
+.orb-core:after{border-color:#ffffff88;box-shadow:inset 0 0 30px #ffffff22}
+.float-card{background:linear-gradient(145deg,#21163beF,#10152ceF);border:1px solid #c58aff55;box-shadow:0 28px 80px #0009,0 0 35px #9d4dff22}
+.card-code pre b{color:#68e7ff}.card-code pre em{color:#ff65d8}.tag-icon{color:#68e7ff}
+.marquee{background:linear-gradient(90deg,#190e30,#101a38,#28102d);border-color:#a65cff33}
+.marquee-track span{color:#e5d7ff}
+.section-label{color:#68e7ff}.section-label .line{background:linear-gradient(90deg,#a477ff66,transparent)}
+.muted{color:#877ca8}
+.skills-section,.contact-section{background:linear-gradient(145deg,#100d24,#11172d 55%,#1b0d29);border-color:#a65cff33}
+.skill-card,.journal-card{background:linear-gradient(145deg,#211738,#15132d 55%,#111a31);border:1px solid #a477ff38;border-radius:18px;box-shadow:0 15px 45px #0003;transform-style:preserve-3d;transition:transform .35s,border-color .35s,box-shadow .35s}
+.skill-card:hover,.journal-card:hover{transform:translateY(-8px) rotateX(2deg);border-color:#ff65d8aa;box-shadow:0 25px 60px #8e38ff25}
+.skill-icon,.project-type,.project-arrow,.text-link{color:#68e7ff}
+.pills span{border-radius:999px;border-color:#a477ff55;color:#e4d7ff;background:#a477ff0b}
+.visual-current{background:radial-gradient(ellipse at 65% 35%,#a12d9c,#302064 42%,#10152b 78%)}
+.visual-fees{background:radial-gradient(ellipse at 50% 50%,#294f91,#2a174d 65%,#101020)}
+.visual-portfolio{background:radial-gradient(ellipse at 50% 45%,#8a2a8a,#27144d 60%,#101020)}
+.visual-window{box-shadow:0 30px 100px #0009,0 0 45px #ff65d822;border-color:#ffb5f766}
+.mock-title b{color:#68e7ff}.mock-line{background:linear-gradient(90deg,#ff65d8,#a477ff,#68e7ff,transparent)}
+.portfolio-shape{border-color:#ff65d8aa;box-shadow:0 0 70px #a477ff44}.portfolio-shape:before{border-color:#68e7ff77}.portfolio-shape:after{border-color:#ff65d866}.portfolio-shape span{color:#ff65d8}
+.journal-section{background:linear-gradient(180deg,#0d0b20,#12132b 55%,#180d25);border-color:#a65cff33}
+.filter-btn{border-radius:999px}.filter-btn.active,.filter-btn:hover{color:#68e7ff;border-color:#68e7ff99;background:#68e7ff0e}
+.post-composer{background:linear-gradient(145deg,#211738,#11152a);border-color:#ff65d855;border-radius:18px}
+.post-composer input:focus,.post-composer select:focus,.post-composer textarea:focus{border-color:#68e7ff}
+.post-composer input:not([type=file]),.post-composer select,.post-composer textarea{border-radius:12px;background:#0c0b1b}
+.journal-card-meta{color:#68e7ff}.journal-empty{border-color:#a477ff55;border-radius:18px}
+.contact-content h2{ text-shadow:0 10px 55px #a477ff20}
+.contact-bottom b{color:#68e7ff}
+@keyframes auroraShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.hero:before{content:"";position:absolute;inset:7% 0 12% 25%;z-index:0;pointer-events:none;background:linear-gradient(120deg,#ff65d810,#a477ff17,#68e7ff10);background-size:200% 200%;filter:blur(50px);border-radius:50%;animation:auroraShift 12s ease infinite}
+@media(max-width:600px){.nav-links{background:#100d24}.hero:before{inset:8% -15% 10% 0}.skill-card:hover,.journal-card:hover{transform:translateY(-4px)}}
