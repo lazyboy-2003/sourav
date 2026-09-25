@@ -76,3 +76,15 @@ body{background:radial-gradient(ellipse at 12% 5%,#32105b55,transparent 34%),rad
 @keyframes auroraShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .hero:before{content:"";position:absolute;inset:7% 0 12% 25%;z-index:0;pointer-events:none;background:linear-gradient(120deg,#ff65d810,#a477ff17,#68e7ff10);background-size:200% 200%;filter:blur(50px);border-radius:50%;animation:auroraShift 12s ease infinite}
 @media(max-width:600px){.nav-links{background:#100d24}.hero:before{inset:8% -15% 10% 0}.skill-card:hover,.journal-card:hover{transform:translateY(-4px)}}
+
+
+/* Hero portrait from repository image */
+.hero-art-photo{position:relative;overflow:hidden;border-radius:28px;min-height:560px;isolation:isolate;background:radial-gradient(ellipse at 70% 20%,#164f9b 0%,#11152f 48%,#070812 100%);border:1px solid #568bff55;box-shadow:0 25px 90px #001b4b66,0 0 55px #315dff22}
+.hero-profile-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 28%;z-index:0;filter:saturate(.94) contrast(1.03);}
+.hero-art-photo:after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,rgba(5,8,25,.04) 35%,rgba(5,8,25,.22) 65%,rgba(5,8,25,.82) 100%),linear-gradient(90deg,rgba(7,10,30,.12),transparent 45%,rgba(17,73,180,.13));}
+.hero-art-photo .orbit,.hero-art-photo .orb-core{display:none}
+.hero-art-photo .float-card,.hero-art-photo .art-caption{z-index:2}
+.hero-art-photo .float-card{backdrop-filter:blur(14px);background:rgba(7,12,34,.72);border-color:#648cff66}
+.hero-art-photo .art-caption{position:absolute;bottom:20px;right:22px;color:#dce7ff}
+@media(max-width:900px){.hero-art-photo{min-height:440px}}
+@media(max-width:600px){.hero-art-photo{min-height:390px;border-radius:22px}.hero-profile-photo{object-position:center 25%}}
